@@ -1,6 +1,15 @@
 using Microsoft.OpenApi.Models;
+using Microsoft.EntityFrameworkCore;
+using nexox.Data;
 
 var builder = WebApplication.CreateBuilder(args);
+
+// Adiciona o contexto do banco de dados usando MySQL Oficial
+builder.Services.AddDbContext<AppDbContext>(options =>
+    options.UseMySql(
+        builder.Configuration.GetConnectionString("DefaultConnection"),
+        new MySqlServerVersion(new Version(8, 0, 34)) // Versão do MySQL Server
+    ));
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
