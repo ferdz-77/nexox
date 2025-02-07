@@ -38,7 +38,7 @@ namespace Nexox.Models
 
         [Required]
         [StringLength(50)]
-        public string Status { get; set; } // ENUM: disponível, vendida, exibição, reservada
+        public bool? Status { get; set; } // ENUM: disponível, vendida, exibição, reservada
 
         [StringLength(255)]
         public string Localizacao { get; set; }
